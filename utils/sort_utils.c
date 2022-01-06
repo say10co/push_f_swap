@@ -56,4 +56,3 @@ int	get_indexof(int *array, int num)
 		i++;
 	return (i);
 }
-

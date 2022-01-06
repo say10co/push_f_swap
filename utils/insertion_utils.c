@@ -60,7 +60,6 @@ int	choose_op(t_list **stack_a, t_list **stack_b, t_info strct)
 		return (1);
 	else
 	{
-
 		if (strct.nb_ra > strct.nb_rra)
 			do_(stack_a, strct.nb_rra, rrx, "rra\n");
 		else

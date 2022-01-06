@@ -1,17 +1,17 @@
 #include "../includes/includes.h"
-#include <limits.h>
 
-void 	do_(t_list **stack_b, int nb_t, int (*f)(), char *s)
+void	do_(t_list **stack_b, int nb_t, int (*f)(), char *s)
 {
 	while (nb_t--)
 		f(stack_b, s);
 }
+
 int	max_uptop(t_list *stack_b)
 {
 	t_list	*curr;
-	int	max;
-	int	i;
-	int	j;
+	int		max;
+	int		i;
+	int		j;
 
 	max = *(int *)(stack_b)->content;
 	curr = stack_b;
@@ -29,14 +29,15 @@ int	max_uptop(t_list *stack_b)
 	}
 	return (j);
 }
-void	min_move(t_list *stack_a, t_list *stack_b, t_info *strct, t_stack stacks)
+
+void	min_mv(t_list *stack_a, t_list *stack_b, t_info *strct, t_stack stacks)
 {
 	t_info	tmp;
 
 	tmp.nb_ra = nb_ra(stack_a, strct->num);
 	tmp.nb_rb = nb_rb(stack_b, stacks, strct->num);
-	tmp.nb_rra = (strct->size_a - tmp.nb_ra) ;
-	tmp.nb_rrb = (strct->size_b - tmp.nb_rb) ;
+	tmp.nb_rra = (strct->size_a - tmp.nb_ra);
+	tmp.nb_rrb = (strct->size_b - tmp.nb_rb);
 	tmp.t = total(tmp);
 	if (tmp.t < strct->t)
 	{
@@ -48,11 +49,11 @@ void	min_move(t_list *stack_a, t_list *stack_b, t_info *strct, t_stack stacks)
 	}
 }
 
-t_info *get_best(t_list *stack_a, t_list *stack_b, t_stack stacks_ab, int s)
+t_info	*get_best(t_list *stack_a, t_list *stack_b, t_stack stacks_ab, int s)
 {
-	t_info *best;
-	t_list *curr;
-	int	n;
+	t_info	*best;
+	t_list	*curr;
+	int		n;
 
 	best = (t_info *)malloc(sizeof(t_info));
 	best->size_a = stacks_ab.size_a;
@@ -67,7 +68,7 @@ t_info *get_best(t_list *stack_a, t_list *stack_b, t_stack stacks_ab, int s)
 		if (!(n == s -1 || n == s -2 || n == s -3))
 		{
 			best->num = n;
-			min_move(stack_a, stack_b, best, stacks_ab);
+			min_mv(stack_a, stack_b, best, stacks_ab);
 		}
 		curr = curr->next;
 	}
@@ -76,13 +77,13 @@ t_info *get_best(t_list *stack_a, t_list *stack_b, t_stack stacks_ab, int s)
 
 int	large_stack(t_list **stack_a, t_list **stack_b)
 {
-	t_info *b;
+	t_info	*b;
 	t_stack	stacks;
-	int	org_size;
-	
-	stacks.size_a =  ft_lstsize(*stack_a);
+	int		org_size;
+
+	stacks.size_a = ft_lstsize(*stack_a);
 	stacks.size_b = 0;
-	org_size= stacks.size_a;
+	org_size = stacks.size_a;
 	while (*stack_a && stacks.size_a != 3)
 	{
 		b = get_best(*stack_a, *stack_b, stacks, org_size);

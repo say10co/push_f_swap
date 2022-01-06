@@ -12,10 +12,6 @@
 #include "./includes/includes.h"
 #include <stdio.h>
 
-//void print_stack_l(t_list *stack){t_list *curr = stack;while(curr){printf("%d\n", *(int *)curr->content); curr = curr->next;}}
-//void psl(t_list *stack, int *r){t_list *curr = stack;while(curr){printf("%d\n", r[*(int *)curr->content]); curr = curr->next;}}
-//int driver(t_list **stack_a, t_list **stack_b);
-
 int	main(int ac, char **args)
 {
 	t_list	*stack_a;

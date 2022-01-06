@@ -5,7 +5,7 @@ int	nb_ra(t_list *stack_a, int num)
 	int	nb;
 
 	nb = 0;
-	while (stack_a && *(int	*)stack_a->content != num)
+	while (stack_a && *(int *)stack_a->content != num)
 	{
 		stack_a = stack_a->next;
 		nb++;
@@ -15,10 +15,10 @@ int	nb_ra(t_list *stack_a, int num)
 
 int	nb_rb(t_list *stack_b, t_stack stacks_ab, int num)
 {
-	int	nb;
-	int	i;
-	int	p;
-	t_list *tmp;
+	t_list	*tmp;
+	int		nb;
+	int		i;
+	int		p;
 
 	i = 1;
 	nb = -42;
@@ -57,11 +57,11 @@ int	total(t_info strct)
 	return (t);
 }
 
-void 	max_to_top(t_list **stack_b, int nb_t, char *s1, char *s2)
+void	max_to_top(t_list **stack_b, int nb_t, char *s1, char *s2)
 {
-	int	size;
 	char	*str;
-	int	(*f)();
+	int		size;
+	int		(*f)();
 
 	f = rx;
 	str = s1;
