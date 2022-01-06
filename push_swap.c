@@ -6,11 +6,18 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 02:39:04 by adriouic          #+#    #+#             */
-/*   Updated: 2021/12/22 01:08:52 by adriouic         ###   ########.fr       */
+/*   Updated: 2022/01/06 12:43:14 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "./includes/includes.h"
-#include <stdio.h>
+
+int	clear_out(void *a, void *b, t_list **t_c)
+{
+	free(a);
+	free(b);
+	ft_lstclear(t_c, free);
+	return (0);
+}
 
 int	main(int ac, char **args)
 {
@@ -28,12 +35,11 @@ int	main(int ac, char **args)
 	stack_a = form_stack(array, sorted, ac);
 	if (!stack_a)
 		return (0);
+	if (is_sorted(stack_a))
+		return (clear_out(sorted, array, &stack_a));
 	if (ac <= 3)
 		small_stack(&stack_a, ac);
 	else
 		large_stack(&stack_a, &stack_b);
-	free(sorted);
-	free(array);
-	ft_lstclear(&stack_a, free);
-	return (0);
+	return (clear_out(sorted, array, &stack_a));
 }

@@ -6,7 +6,7 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:16:46 by adriouic          #+#    #+#             */
-/*   Updated: 2022/01/06 11:58:15 by adriouic         ###   ########.fr       */
+/*   Updated: 2022/01/06 12:20:15 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ int	main(int ac, char **args)
 	if (get_actions(&stack_a, &stack_b))
 	{
 		if (is_sorted(stack_a) && !stack_b)
-			write(1, "OK", 2);
+			write(1, "OK\n", 3);
 		else
-			write(1, "KO", 2);
+			write(1, "KO\n", 3);
 	}
 	ft_lstclear(&stack_a, free);
 	ft_lstclear(&stack_b, free);

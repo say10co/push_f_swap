@@ -6,7 +6,7 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:48:53 by adriouic          #+#    #+#             */
-/*   Updated: 2022/01/06 11:57:48 by adriouic         ###   ########.fr       */
+/*   Updated: 2022/01/06 12:13:32 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/includes.h"
@@ -40,7 +40,7 @@ int	all_ints(char **args)
 		j = 0;
 		while (args[i][j])
 		{
-			if (!j && args[i][j] == '-')//&& ft_isdigit(args[i][j + 1]))
+			if (!j && args[i][j] == '-')
 				j++;
 			if (!(ft_isdigit(args[i][j])))
 				return (0);
