@@ -6,7 +6,7 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:16:46 by adriouic          #+#    #+#             */
-/*   Updated: 2021/12/24 16:43:15 by adriouic         ###   ########.fr       */
+/*   Updated: 2022/01/06 11:58:15 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	continue_(t_list **stack_a, t_list **stack_b, char *dm)
 
 int	throw_error(void)
 {			
-	write (1, "Error\n", 6);
+	write (2, "Error\n", 6);
 	return (0);
 }
 

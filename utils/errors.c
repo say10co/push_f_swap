@@ -6,7 +6,7 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:48:53 by adriouic          #+#    #+#             */
-/*   Updated: 2021/12/24 15:05:56 by adriouic         ###   ########.fr       */
+/*   Updated: 2022/01/06 11:57:48 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/includes.h"
@@ -34,13 +34,13 @@ int	all_ints(char **args)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (args[i])
 	{
 		j = 0;
 		while (args[i][j])
 		{
-			if (!j && args[i][j] == '-' && ft_isdigit(args[i][j + 1]))
+			if (!j && args[i][j] == '-')//&& ft_isdigit(args[i][j + 1]))
 				j++;
 			if (!(ft_isdigit(args[i][j])))
 				return (0);
@@ -51,13 +51,13 @@ int	all_ints(char **args)
 	return (1);
 }
 
-int	check_(int sign, int len, char *s)
+int	check_(int positive, int len, char *s)
 {
 	if (len > 10)
 		return (0);
-	if (sign && len == 10 && ft_strcmp(s, "2147483647") > 0)
+	if (positive && len == 10 && ft_strcmp(s, "2147483647") > 0)
 		return (0);
-	if (!sign && len == 10 && ft_strcmp(s, "2147483648") > 0)
+	if (!positive && len == 10 && ft_strcmp(s, "2147483648") > 0)
 		return (0);
 	return (1);
 }
@@ -107,6 +107,6 @@ int	check_args(char ***args, int *ac)
 		return (0);
 	if (all_ints(*args) && check_limits(*args) && check_double_count(*args, 1))
 		return (1);
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	return (0);
 }
